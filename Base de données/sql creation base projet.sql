@@ -1,4 +1,4 @@
--- SQLite
+SQLite
 CREATE TABLE profil (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 nom TEXT NOT NULL,
@@ -27,11 +27,13 @@ FOREIGN KEY (id_profil) REFERENCES profil(id)
 CREATE TABLE live (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 id_profil INT,
+id_categorie INT,
 nom TEXT NOT NULL,
 nombre_viewers INT,
 temps_live INT,
-historique_chat TEXT NOT NULL,
+historique_chat JSONB,
 FOREIGN KEY (id_profil) REFERENCES profil(id)
+FOREIGN KEY (id_categorie) REFERENCES categorie(id)
 );
 
 CREATE TABLE categorie (
@@ -50,3 +52,4 @@ date INT,
 FOREIGN KEY (id_profil) REFERENCES profil(id),
 FOREIGN KEY (id_live) REFERENCES live(id)
 );
+
