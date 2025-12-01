@@ -2,7 +2,7 @@
 CREATE TABLE profil (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 nom TEXT NOT NULL,
-liste_streamers_suivis TEXT NOT NULL,
+liste_streamers_suivis JSONB,
 nombre_followers INT,
 en_live BOOL,
 est_streamer BOOL
